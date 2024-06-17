@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+
+
+int main(){
+//take two nembers from user;
+float num1,num2;
+cout<<"enter number 1: ";
+cin>>num1;
+cout<<"enter number 2: ";
+cin>>num2;
+
+//select operation from user;
+int operation;
+cout<<"choose operation: "<<endl
+<<"1.addition"<<endl
+<<"2.substraction"<<endl
+<<"3,multiplication"<<endl
+<<"4.division"<<endl;
+cin>>operation;
+cout<<"result is: ";
+switch (operation){
+    case 1: 
+    cout<<num1+num2; 
+    break;
+    case 2: 
+    cout<<num1-num2; 
+    break;
+    case 3: 
+    cout<<num1*num2;
+    break;
+    case 4: 
+    cout<<num1/num2;
+    break;
+    default: cout<<"enter valid operation number ";
+}
+    return 0;
+}
