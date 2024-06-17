@@ -1,0 +1,35 @@
+#include<iostream>
+#include<ctime>
+using namespace std;
+int main(){
+    //generate random numbers;
+    srand(time(0));
+    int guessnum=(rand()%100)+1;
+    
+    //to count number of guesses
+    int counter=0;
+    
+    while(1){
+    //take input from user;
+    int usernum;
+    cout<<"guess the number: ";
+    cin>>usernum;
+        counter++;
+        
+        //check whether number enter by user is match with random number or not;
+        if(guessnum==usernum){
+            cout<<"you guess the correct number in "<<counter<<" guesses";
+            break;
+        }
+        
+        //feedback to user;
+        else if (guessnum>usernum){
+            cout<<"the number you entered is too low"<<endl; 
+        }
+        
+        else{
+            cout<<"the number you enter is too high"<<endl;
+        }
+    }
+    return 0;
+}
