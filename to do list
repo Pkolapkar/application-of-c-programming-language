@@ -1,0 +1,77 @@
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+
+//function to add task;
+void addtask(vector<string>& v) {
+    string input;
+    cout << "Enter the task that you want to add: " << endl;
+    cin.ignore(); 
+    getline(cin, input);
+    v.push_back(input);
+}
+
+//function to show task;
+void viewtask(vector<string>v){
+    vector<string>::iterator itr;
+    for(int i=0;i<v.size();i++){
+        cout<<i+1<<"."<<v[i]<<endl;
+    }
+    return;
+}
+
+//function to delete task;
+void deletetask(vector<string>&v){
+    int idx;
+    cout<<"entre the index that you want to delete "<<endl;
+    cin>>idx;
+    if(idx>0 && idx<v.size()){
+    vector<string>::iterator itr;
+    itr=v.begin();
+    advance(itr,idx-1);
+    v.erase(itr);
+    cout<<"task deleted sucessfully"<<endl;}
+    else cout<<"invalid index"<<endl;
+}
+
+//function to exit from code
+bool quit(bool &check){
+    check = false;
+    return check;
+}
+
+
+int main(){
+    vector<string>v;
+    bool check=true;
+    
+    //select what you want to do with tasklist;
+    while(check){
+    int choice;
+    cout<<"to do list "<<endl<<"enter your choice: "<<endl
+    <<"1.add task"<<endl
+    <<"2.view task"<<endl
+    <<"3.delete task"<<endl
+    <<"4.quit"<<endl;
+    
+    cin>>choice;
+    switch(choice){
+        case 1:
+        addtask(v);
+        break;
+        case 2:
+        viewtask(v);
+        break;
+        case 3:
+        deletetask(v);
+        break;
+        case 4:
+        quit(check);
+        break;
+        default: cout<<"enter valid choice";
+    }
+        
+}
+    return 0;
+}
